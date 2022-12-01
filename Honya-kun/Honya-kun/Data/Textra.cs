@@ -10,7 +10,6 @@ using System.Xml;
 using System.Collections.Specialized;
 using static TexTra.APIAccessor_ja.HttpConnection;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 /// <summary>
 /// APIアクセス部
@@ -22,7 +21,26 @@ namespace TexTra
 
     public static class APIAccessor_ja
     {
+        private static TexTraPlugin MySettings = new TexTraPlugin()
+        {
+            API_URL = "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_ja_en/",
+            API_KEY = "ここは自分のAPI Keyを入れます",
+            API_SECRET = "ここは自分のAPI Secretを入れます",
+            API_USER = "ここは自分のUser Nameを入れます"
+        };
 
+        public class TexTraPlugin
+        {
+            public string API_自動翻訳 { get; set; }
+            public string API_URL { get; set; }
+            public string API_KEY { get; set; }
+            public string API_SECRET { get; set; }
+            public string API_USER { get; set; }
+            public string proxy { get; set; }
+            public string proxy_id { get; set; }
+            public string proxy_password { get; set; }
+            public int proxy_port { get; set; }
+        }
         #region "API"
 
         #region "対訳登録"
@@ -360,56 +378,56 @@ namespace TexTra
                     "汎用 : 中国語(簡体字) - 日本語",
                     ((int)Language.cn).ToString(),
                     ((int)Language.ja).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_zh-CN_ja/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_zh-CN_ja/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 中国語(繁体字) - 日本語",
                     ((int)Language.tw).ToString(),
                     ((int)Language.ja).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_zh-TW_ja/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_zh-TW_ja/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 日本語 - 中国語(簡体字)",
                     ((int)Language.ja).ToString(),
                     ((int)Language.cn).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_ja_zh-CN/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_ja_zh-CN/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 日本語 - 中国語(繁体字)",
                     ((int)Language.ja).ToString(),
                     ((int)Language.tw).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_ja_zh-TW/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_ja_zh-TW/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 日本語 - 英語",
                     ((int)Language.ja).ToString(),
                     ((int)Language.en).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_ja_en/"
+                      "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_ja_en/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 日本語 - 韓国語",
                     ((int)Language.ja).ToString(),
                     ((int)Language.ko).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_ja_ko/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_ja_ko/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 英語 - 日本語",
                     ((int)Language.en).ToString(),
                     ((int)Language.ja).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_en_ja/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_en_ja/"
                 }));
                 list.Add(new List<String>(new string[] {
                     "1",
                     "汎用 : 韓国語 - 日本語",
                     ((int)Language.ko).ToString(),
                     ((int)Language.ja).ToString(),
-                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/general_ko_ja/"
+                    "https://mt-auto-minhon-mlt.ucri.jgn-x.jp/api/mt/generalNT_ko_ja/"
                 }));
 
                 return create_TSV(list);
@@ -721,7 +739,6 @@ namespace TexTra
 
         #region "Constants"
 
-        private static TexTraPlugin.Properties.Settings MySettings = TexTraPlugin.Properties.Settings.Default;
 
         public enum Language : int
         {
@@ -761,7 +778,7 @@ namespace TexTra
             }
             catch (Exception e)
             {
-                if (show_message) MessageBox.Show("XMLの読込に失敗しました。\n\n" + e.Message);
+                //if (show_message) MessageBox.Show("XMLの読込に失敗しました。\n\n" + e.Message);
                 return null;
             }
 
@@ -1584,5 +1601,3 @@ namespace TexTra
     }
 
 }
-
-
