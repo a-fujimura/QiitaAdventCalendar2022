@@ -7,4 +7,8 @@
     <RootNamespace>Honya_kun</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Radzen.Blazor" Version="4.4.1" />
+  </ItemGroup>
+
 </Project>
