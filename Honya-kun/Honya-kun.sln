@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Honya-kun", "Honya-kun\Honya-kun.csproj", "{07A77D68-8CDA-4F1B-A9BF-C490F2D12A14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07A77D68-8CDA-4F1B-A9BF-C490F2D12A14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A77D68-8CDA-4F1B-A9BF-C490F2D12A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A77D68-8CDA-4F1B-A9BF-C490F2D12A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A77D68-8CDA-4F1B-A9BF-C490F2D12A14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC24C972-AF3C-4C8F-AF84-89D066BAA9B3}
+	EndGlobalSection
+EndGlobal
