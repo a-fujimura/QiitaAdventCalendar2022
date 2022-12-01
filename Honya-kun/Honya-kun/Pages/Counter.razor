@@ -1,4 +1,5 @@
 ﻿@page "/counter"
+@using static TexTra.APIAccessor_ja
 
 <PageTitle>Counter</PageTitle>
 
@@ -8,11 +9,21 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<RadzenTextBox @bind-Value=@orgValue></RadzenTextBox>
+<RadzenTextBox @bind-Value=@newValue></RadzenTextBox>
+
 @code {
     private int currentCount = 0;
+    string orgValue = string.Empty;
+    string newValue = string.Empty;
 
     private void IncrementCount()
     {
         currentCount++;
+        var get = TexTra.APIAccessor_ja.get_auto_trans(orgValue, Language.ja, Language.en, out APIResponseBean aPIResponseBean);
+        if (get.Any())
+        {
+            newValue = ((TexTra.APIAccessor_ja.AutoTransInfo)get[0].value).text_translated;
+        }
     }
 }
