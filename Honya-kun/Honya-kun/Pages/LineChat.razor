@@ -1,5 +1,5 @@
 ﻿@page "/linechat"
-<RadzenHtmlEditor @bind-Value=@value Style=""></RadzenHtmlEditor>
+<RadzenHtmlEditor @bind-Value=@value></RadzenHtmlEditor>
 
 @code {
     string value = string.Empty;
@@ -103,7 +103,7 @@
         value = chatCss;
         value += "<div class=\"kaiwa line\">"+
         "    <div class=\"name\">"+
-        "        おなまえ"+
+        "        ほんやくん"+
         "    </div>"+
         "    <div class=\"fukidasi left\">"+
         "        <img class=\"icon\" src=\"img/icon.png\" alt=\"\">LINE風です。"+
