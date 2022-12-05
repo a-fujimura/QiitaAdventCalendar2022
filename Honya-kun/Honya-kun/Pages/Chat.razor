@@ -1,6 +1,15 @@
 ﻿@page "/chat"
-<RadzenHtmlEditor @bind-Value=@value></RadzenHtmlEditor>
-
+@using Radzen
+<RadzenSplitter Orientation="Orientation.Vertical">
+    <RadzenSplitterPane Size="95%">
+        <div class="h-100" style="overflow-y: scroll;">
+            <RadzenHtmlEditor @bind-Value=@value></RadzenHtmlEditor>
+        </div>
+    </RadzenSplitterPane>
+    <RadzenSplitterPane Size="5%">
+        <RadzenButton class="w-100 h-100" Text="一番下へ"></RadzenButton>
+    </RadzenSplitterPane>
+</RadzenSplitter>
 @code {
     string value = string.Empty;
 
@@ -13,7 +22,8 @@
                "/*フレームとフォント*/" +
                ".kaiwa.line {" +
                "    width: 100%;" +
-               "    max-width: 500px;" +
+               "height:100%;" +
+               //"    max-width: 500px;" +
                "    margin: 0 auto;" +
                "    padding: 10px 0;" +
                "    background: #769ece;" +
@@ -94,31 +104,31 @@
                ".kaiwa.line .left + .left::after," +
                ".kaiwa.line .right + .right::after {" +
                "    content: none;" +
-               "}"+
-               "</style>" ;
+               "}" +
+               "</style>";
     }
 
     protected override void OnParametersSet()
     {
         value = chatCss;
-        value += "<div class=\"kaiwa line\">"+
-        "    <div class=\"name\">"+
-        "        ほんやくん"+
-        "    </div>"+
-        "    <div class=\"fukidasi left\">"+
-        "        <img class=\"icon\" src=\"img/icon.png\" alt=\"\">LINE風です。"+
-        "    </div>"+
-        "    <div class=\"fukidasi left\">"+
-        "        続けて喋るとフキダシのしっぽはつきません。"+
-        "    </div>"+
-        "    <div class=\"fukidasi right\">"+
-        "        HTMLとCSSでできます。"+
-        "    </div>"+
-        "    <br><!-- 次のフキダシにしっぽをつけたいときはbrを挿入 -->"+
-        "    <div class=\"fukidasi right\">"+
-        "        続けても、しっぽをつけたいときは間にbrを入れます。"+
-        "    </div>"+
-        "    <div class=\"fukidasi left\">"+
+        value += "<div class=\"kaiwa line\">" +
+        "    <div class=\"name\">" +
+        "        ほんやくん" +
+        "    </div>" +
+        "    <div class=\"fukidasi left\">" +
+        "        <img class=\"icon\" src=\"img/icon.png\" alt=\"\">LINE風です。" +
+        "    </div>" +
+        "    <div class=\"fukidasi left\">" +
+        "        続けて喋るとフキダシのしっぽはつきません。" +
+        "    </div>" +
+        "    <div class=\"fukidasi right\">" +
+        "        HTMLとCSSでできます。" +
+        "    </div>" +
+        "    <br><!-- 次のフキダシにしっぽをつけたいときはbrを挿入 -->" +
+        "    <div class=\"fukidasi right\">" +
+        "        続けても、しっぽをつけたいときは間にbrを入れます。" +
+        "    </div>" +
+        "    <div class=\"fukidasi left\">" +
         "        <img class=\"icon\" src=\"img/icon.png\" alt=\"\">グループじゃないとき。" +
         "    </div>" +
         "</div>";

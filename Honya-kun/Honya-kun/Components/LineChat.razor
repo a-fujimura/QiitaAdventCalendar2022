@@ -1,5 +1,22 @@
-﻿<h3>Chat</h3>
+﻿<RadzenHtmlEditor @bind-Value=@Value class="w-100" style="font-family:Source Han Code JP;height:100%;" UploadUrl="upload/image" Disabled=@false>
+    <RadzenHtmlEditorSeparator />
+</RadzenHtmlEditor>
+<section id="bottom" />
 
 @code {
+    string _Value = string.Empty;
+    [Parameter]
+    public string Value
+    {
+        get => _Value;
+        set
+        {
+            if (_Value == value) return;
+            _Value = value;
+            ValueChanged.InvokeAsync(value);
+        }
+    }
 
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
 }
